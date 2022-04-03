@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function gameStates()
+    {
+      return $this->belongsToMany('App\Models\GameState');
+    }
+
+    public function initRequests()
+    {
+      return $this->hasMany('App\Models\InitRequest');
+    }
+
+
 }
